@@ -58,5 +58,6 @@ void grad_pow(value* value);
 // computes the partial derivative of every one of
 // the given value's parents in terms of the given
 // value (each parents gradient will be assigned)
+// params	- value who's gradient is 1.0
 void compute_grad(value* value);
 #endif

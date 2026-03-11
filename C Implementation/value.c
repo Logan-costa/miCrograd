@@ -129,7 +129,7 @@ void grad_pow(value* value){
 	value->parents[0]->grad += value->parents[1]->data * pow(value->parents[0]->data, value->parents[1]->data - 1) * value->grad;
 }
 
-// bfs parents
+// dfs parents
 // params	- a value with a gradient value of 1.0
 void compute_grad(value* value){
 	if(value->grad_func == NULL)
