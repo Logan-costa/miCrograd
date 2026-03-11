@@ -11,7 +11,7 @@ typedef enum op_t{
 typedef struct value_t{
 	float data;
 	float grad;
-	void (*grad_func)(struct value_t *self);
+	void (*grad_func)(struct value_t*);
 	op op;
 	char* label;
 	struct value_t** parents;
@@ -36,6 +36,10 @@ value* value_mul(value* value1, value* value2, char* label);
 // returns	- a new value with a proper grad func
 value* value_div(value* dividend, value* divisor, char* label);
 
+// raises one value to another
+// returns	- a new value with a proper grad func
+value* value_pow(value* base, value* exponent, char* label);
+
 // gradient function of a value produced through addition
 void grad_add(value* value);
 
@@ -48,8 +52,11 @@ void grad_mul(value* value);
 // gradient function of a value produced through division
 void grad_div(value* value);
 
+// gradient function of a value produced through exponentiation
+void grad_pow(value* value);
+
 // computes the partial derivative of every one of
 // the given value's parents in terms of the given
 // value (each parents gradient will be assigned)
-void backwards(value* value);
+void compute_grad(value* value);
 #endif

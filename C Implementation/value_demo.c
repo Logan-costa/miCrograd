@@ -13,7 +13,14 @@ int main(int argc, char** argv){
 
 
 	printf("result value = %f\n", result->data);
-	printf("grad func = ");
-	result->grad_func(result);
+	if(a->grad_func == NULL){
+		printf("null grad\n");
+	}
+
+	printf("a grad = %f\n", a->grad);
+	result->grad = 1.0;
+	//result->grad_func(result);
+	compute_grad(result);
+	printf("a grad = %f\n", a->grad); 
 	return 0;
 }
