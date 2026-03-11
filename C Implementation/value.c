@@ -9,7 +9,7 @@ value* create_value(float data, char* label){
 	val->data = data;
 	val->label = label; // this is lowkey sloppy and I should copy it into a new string but meh
 
-	printf("%f\n", val->data);
+	//printf("%f\n", val->data);
 
 	// default values
 	val->op = NONE;
